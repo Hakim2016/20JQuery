@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Minimal Bookmarks Tree</title>
+        <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+        <script src="js/jquery.mjs.nestedSortable.js"></script>
+        <script src="js/settings.js"></script>
+        <script src="js/popup/functions.js"></script>
+        <script src="js/popup/main.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/popup.css" />
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="loading">Loading ...</div>
+            <ul id="context">
+                <li id="bookmark_edit">Edit ...</li>
+                <li id="bookmark_delete">Delete</li>
+
+                <li id="folder_open_all">Open all</li>
+                <li id="folder_edit">Edit ...</li>
+                <li id="folder_delete">Delete</li>
+            </ul>
+            <ul id="bookmarks">
+            </ul>
+        </div>
+        <div id="overlay">
+            <div id="edit_panel">
+                <div class="row">
+                    <label for="edit_name">Name</label>
+                    <input type="text" id="edit_name" /><br />
+                </div>
+                <div class="row" id="url_row">
+                    <label for="edit_url">URL</label>
+                    <input type="text" id="edit_url" /><br />
+                </div>
+                <div class="row actions">
+                    <button type="button" id="edit_save" class="btn blue">Save</button>
+                    <button type="button" id="edit_cancel" class="btn">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

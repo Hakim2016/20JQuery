@@ -1,0 +1,27 @@
+{
+   "background": {
+      "page": "background.html"
+   },
+   "browser_action": {
+      "default_icon": "icons/bookmark48.png",
+      "default_popup": "popup.html",
+      "default_title": "Bookmarks"
+   },
+   "content_security_policy": "script-src 'self' https://code.jquery.com; object-src 'self'",
+   "description": "Display a tree of bookmarks under a toolbar button, and search your bookmarks in the omnibox using the keyword 'bm'.",
+   "icons": {
+      "128": "icons/bookmark48.png",
+      "16": "icons/bookmark16.png",
+      "48": "icons/bookmark48.png"
+   },
+   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCbCBp8pWEPsFQLdPMGqAdnW3EDXUd1L1+rlQ7IpwWzbrBScBvjoGweIoXLNnrfcRVaVzsAZyMDH1KWBuDEmeHWFcgg6hZWjHrkjm13Mm7FsDRoN1LnFVGDT9qWk7cRcsd2YPdVAnCHS1q9T9/xtcpq7YCoNrEq/ecMZttDLq7x8QIDAQAB",
+   "manifest_version": 2,
+   "name": "Minimal Bookmarks Tree",
+   "omnibox": {
+      "keyword": "bm"
+   },
+   "options_page": "options.html",
+   "permissions": [ "tabs", "bookmarks", "chrome://favicon/" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.21"
+}
