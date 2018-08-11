@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="Generator" content="Sublime Text">
+	<meta name="Author" content="Hakim">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="Mini Game Balloon">
+	<title>Balloon</title>
+	<style type="text/css">
+	*{margin: 0;padding: 0}
+	body{
+		/*hide the over part*/
+		overflow: hidden;
+		background: #ccc;
+	}
+
+	.balloon{
+		position: absolute;/*relative body html window*/
+		width: 160px;
+		height: 160px;
+		background: #faf9f9;
+
+		/*circle attribute*/
+		border-radius: 160px 160px 64px 160px;
+
+		/*css3 transform rotate clockwise 45 degree*/
+		transform: rotate(45deg);
+
+		/*shadow of this figure*/
+		/*x位移 y位移 羽化程度 半径 颜色 内外阴影*/
+		box-shadow: -8px -8px 80px -8px #873940 inset;
+	}
+
+	.balloon:after{
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		content: '';
+		border: 8px solid transparent;
+		border-right-color: #873940;
+		transform: rotate(45deg);
+		border-radius: 50%;
+	}
+
+</style>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+			javascript
+			基于圆形的动态解释性脚本语言
+			java基于类  面向对象
+
+			JavaScript基于原型  DNA
+			class{}
+			var arr = new Array();
+			var arr = [];
+
+		动态js生成若干dom节点
+		类名为balloon 气球向上移动
+		用户点击气球 气球产生动画效果 并消失
+
+		需求分析
+			1.动态生成dom元素 初始化
+				1.1.how many balloons is needed
+				1.2.create balloon
+					1.2.1.createElement create div mark
+					1.2.2.add attribute and class
+
+				1.3
+				1.4.optimize the attribute of balloons
+					1.4.1.vertically top = wH will affect js
+					1.4.2.landscape random digits 0 - wW
+						Math.random() 0<= x <1
+					1.4.3.boarder limit
+
+			2.气球向上移动
+				2.4.定时器
+
+			3.响应用户点击气球操作
+			4.气球动画
+
+			*/
+		var num = 10;//10 balloons
+		var wH = window.innerHeight;//the height of browser
+		var wW = window.innerWidth;//the width of browser
+		var bZ = 160;//the width of the balloon
+		var timer = null;//init a timer
+
+		//console.log('Hakim at first');
+		init();
+		move();
+
+
+
+		function init(){
+			var fragment = document.createDocumentFragment();//节点片段
+			for (var i = 0; i < num; i++) {//for if 不是块级作用域
+				var randomX = ~~(Math.random()*wW) - bZ;//~~位运算符
+				randomX = Math.max(0,randomX);//get the maximum value
+
+				var oBalloon = document.createElement('div');
+				oBalloon.className = 'balloon';
+				oBalloon.style.top = wH - bZ + 'px';//set the top value
+				oBalloon.style.left = randomX + 'px';
+				fragment.appendChild(oBalloon);//put into body
+				//console.log('Hakim in init()');
+			}
+			document.body.appendChild(fragment);
+		}
+
+		//move the balloon
+		function move(){
+			var aBalloons = document.querySelectorAll('.balloon');
+			var len = aBalloons.length;
+			for (var i = 0; i < len; i++) {
+				//loop all the balloons
+				aBalloons[i].style.top = aBalloons[i].offsetTop - 10 + 'px';
+			}
+		}
+	</script>
+	<div class="balloon"></div>
+</body>
+</html>
+
+			<!--
+			伪元素 before after 两个冒号 inline 行内元素 
+
+			伪类 一个冒号
+
+			dom渲染回流
+
+			-->

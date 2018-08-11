@@ -20,3 +20,5 @@ A:
 path====
 C:\Users\"username"\AppData\Local\Google\Chrome\User Data\Default\Extensions
 Find the id of this plugin and the id is the folder name of source code
+
+chrome.bookmarks.getTree

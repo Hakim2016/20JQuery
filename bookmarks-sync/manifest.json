@@ -15,5 +15,6 @@
         },
         "default_title": "Sync Bookmarks",
         "default_popup": "index.html"
-    }
+    },
+    "permissions": [ "tabs", "bookmarks", "chrome://favicon/" ]
 }
