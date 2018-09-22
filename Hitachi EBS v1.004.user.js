@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hitachi EBS
 // @namespace    http://blog.csdn.net/HaKimKing
-// @version      1.001
+// @version      1.004
 // @description  try to take over the world!
 // @author       Hakim
 // @include      http://gscmpsvap*.buil.hitachi.co.jp:*
@@ -17,6 +17,7 @@
     var baseburl = '';
     var port = '';
     var wkl;
+    var i;
 
     var forms = [
         {
@@ -48,6 +49,16 @@
             'oas':'qY8Y7ogAsaY2aOnuf1U9rQ..',
             'name':'Project Expenditure Items',
             'id':'xx03'
+        },
+        {//add at 11-sep-2018 v1.002
+            'fun_id':'66',
+            'resp_id':'50263',
+            'resp_appl_id':'707',
+            'security_group_id':'0',
+            'lang_code':'US',
+            'oas':'n_d-U8jKRP_q7VPsuRZmtQ..',
+            'name':'Cost Management - SLA',
+            'id':'xx04'
         }];
 
     //get initial info
@@ -178,7 +189,7 @@
         var temp = '';
         var ous = ['HEA','HBS','SHE','HET'];
         get_init_info();
-        alert('baseburl = ' + baseburl);
+        //alert('baseburl = ' + baseburl);
         for(i=0;i<ous.length;i++){
             temp = temp + find_request_info(port, ous[i]);
         }
@@ -188,7 +199,7 @@
 
         var temp2 = '';
         for(i=0;i<forms.length;i++){
-            temp2 = temp2 + init_br(concat_td(forms[i]["base_url"], forms[i]["fun_id"], forms[i]["resp_id"], forms[i]["resp_appl_id"],forms[i]["security_group_id"],forms[i]["lang_code"],forms[i]["oas"],forms[i]["name"],forms[i]["id"]));
+            temp2 = temp2 + init_br(concat_td(/*forms[i]["base_url"]*/baseburl, forms[i]["fun_id"], forms[i]["resp_id"], forms[i]["resp_appl_id"],forms[i]["security_group_id"],forms[i]["lang_code"],forms[i]["oas"],forms[i]["name"],forms[i]["id"]));
         }
         $('#mainLayout_row_0').append(init_table(temp2));
 
